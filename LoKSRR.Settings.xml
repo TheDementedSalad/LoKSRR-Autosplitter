@@ -1,0 +1,47 @@
+<Settings>
+    <Setting Id="SR1" Label="Soul Reaver 1" State="false">
+		<Setting Id="SR1A" Label="Area Splits" State="false">
+			<Setting Id="Area_train6_0" Label="Defeated Sluagh" State="false"/>
+			<Setting Id="Area_pillars9_0" Label="Finish Tutorial" State="false"/>
+			<Setting Id="Area_huba4_0" Label="Dumahim Ambush" State="false"/>
+			<Setting Id="Area_out1_2" Label="Reach The Necropolis" State="false"/>
+			<Setting Id="Area_skinnr14_0" Label="Finish Weights Puzzle" State="false"/>
+			<Setting Id="Area_skinnr5_0" Label="Reach Machinary Room" State="false"/>
+			<Setting Id="Area_skinnr9_0" Label="Reach Melchiah's Sanctum" State="false"/>
+			<Setting Id="Area_pillars1_0" Label="Reach Pillars of Nosgoth" State="false"/>
+			<Setting Id="Area_aluka27_0" Label="Reach The Drowned Abbey" State="false"/>
+			<Setting Id="Area_aluka20_0" Label="Reach the Sunken Church" State="false"/>
+			<Setting Id="Area_Aluka6_0" Label="Reach Rahab's Sanctum" State="false"/>
+			<Setting Id="Area_cathy1_0" Label="Reach The Silent Cathedral" State="false"/>
+			<Setting Id="Area_cathy8_0" Label="Reach Main Cathedral" State="false"/>
+			<Setting Id="Area_cathy13_2" Label="Extend the Platform" State="false"/>
+			<Setting Id="Area_cathy15_0" Label="Ascend to Second Floor" State="false"/>
+			<Setting Id="glass1" Label="First Glass Puzzle" State="false"/>
+			<Setting Id="glass2" Label="Second Glass Puzzle" State="false"/>
+			<Setting Id="Area_cathy25_2" Label="Third Glass Puzzle" State="false"/>
+			<Setting Id="Area_cathy22_2" Label="Fourth Glass Puzzle" State="false"/>
+			<Setting Id="Area_cathy33_0" Label="Ascend to Third Floor" State="false"/>
+			<Setting Id="Area_cathy38_2" Label="Turn the First Handle" State="false"/>
+			<Setting Id="valve2" Label="Turn the Second Handle" State="false"/>
+			<Setting Id="valve3" Label="Turn the Third Handle" State="false"/>
+			<Setting Id="Area_cathy47_0" Label="Ascend to Zephon's Sanctum" State="false"/>
+			<Setting Id="Area_add1_0" Label="Reach the Tomb of the Sarafan" State="false"/>
+			<Setting Id="Area_nightA1_0" Label="Reach The Ruined City" State="false"/>
+			<Setting Id="Area_nightA6_0" Label="Finish Block Puzzle" State="false"/>
+			<Setting Id="Area_nightb1_0" Label="Lowered Bridge" State="false"/>
+			<Setting Id="Area_nightb3_0" Label="Reach Duham's Sanctum" State="false"/>
+			<Setting Id="Area_mrlock14_0" Label="Enter the Oracle Cave" State="false"/>
+			<Setting Id="Area_oracle9_0" Label="Finish Block Puzzle" State="false"/>
+			<Setting Id="Area_oracle11_0" Label="Exit Spinning Fire Room" State="false"/>
+			<Setting Id="Area_oracle14_0" Label="Finish Puzzle 1" State="false"/>
+			<Setting Id="Area_oracle16_0" Label="Finish Puzzle 2" State="false"/>
+			<Setting Id="Area_oracle18_2" Label="Finish Puzzle 3" State="false"/>
+			<Setting Id="Area_chrono2_0" Label="Finish Puzzle 4" State="false"/>
+			<Setting Id="Area_chrono1_0" Label="Reach Time Streaming Room" State="false"/>
+		</Setting>
+			<Setting Id="End" Label="Final Split (Kain Last Hit) (Always Active)" State="false"/>
+	</Setting>
+	<Setting Id="SR2" Label="Soul Reaver 2" State="false">
+
+	</Setting>
+</Settings>  
