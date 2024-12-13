@@ -1,12 +1,11 @@
-// Legacy of Kain: Soul Reaver Any% Glitchless Autosplitter Version 1.0 07/06/2020
-// Supports real time
-// Splits can be obtained from: https://www.speedrun.com/lok_sr/resources
-// Original Script by Veictas
-// Splits and New Script by TheDementedSalad
+// Legacy of Kain: Soul Reaver 1 & 2 Remaster Autosplitter Version 1.0 13 Dec 2024
+// By TheDementedSalad
+//Supports Load Remover
+//Autosplitter for SR1 & 2
 
 // Special thanks to:
-// Veictas - Creator of the original script, found gameState & map
-// TheDementedSalad - Found levels and no. of cutscenes for each split. Added most splits. Tested splits.
+// TheDementedSalad - Created Splitter
+// Gemini REbirth - Dev for the game, helped with finding addresses and info for them
 
 state("SRX", "Release")
 {
