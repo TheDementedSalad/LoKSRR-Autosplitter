@@ -14,14 +14,14 @@
 			<Setting Id="Area_Aluka6_0" Label="Reach Rahab's Sanctum" State="false"/>
 			<Setting Id="Area_cathy1_0" Label="Reach The Silent Cathedral" State="false"/>
 			<Setting Id="Area_cathy8_0" Label="Reach Main Cathedral" State="false"/>
-			<Setting Id="Area_cathy13_2" Label="Extend the Platform" State="false"/>
+			<Setting Id="Area_cathy13_1" Label="Extend the Platform" State="false"/>
 			<Setting Id="Area_cathy15_0" Label="Ascend to Second Floor" State="false"/>
 			<Setting Id="glass1" Label="First Glass Puzzle" State="false"/>
 			<Setting Id="glass2" Label="Second Glass Puzzle" State="false"/>
-			<Setting Id="Area_cathy25_2" Label="Third Glass Puzzle" State="false"/>
-			<Setting Id="Area_cathy22_2" Label="Fourth Glass Puzzle" State="false"/>
+			<Setting Id="Area_cathy25_1" Label="Third Glass Puzzle" State="false"/>
+			<Setting Id="Area_cathy22_1" Label="Fourth Glass Puzzle" State="false"/>
 			<Setting Id="Area_cathy33_0" Label="Ascend to Third Floor" State="false"/>
-			<Setting Id="Area_cathy38_2" Label="Turn the First Handle" State="false"/>
+			<Setting Id="Area_cathy38_1" Label="Turn the First Handle" State="false"/>
 			<Setting Id="valve2" Label="Turn the Second Handle" State="false"/>
 			<Setting Id="valve3" Label="Turn the Third Handle" State="false"/>
 			<Setting Id="Area_cathy47_0" Label="Ascend to Zephon's Sanctum" State="false"/>
@@ -35,13 +35,30 @@
 			<Setting Id="Area_oracle11_0" Label="Exit Spinning Fire Room" State="false"/>
 			<Setting Id="Area_oracle14_0" Label="Finish Puzzle 1" State="false"/>
 			<Setting Id="Area_oracle16_0" Label="Finish Puzzle 2" State="false"/>
-			<Setting Id="Area_oracle18_2" Label="Finish Puzzle 3" State="false"/>
+			<Setting Id="Area_oracle18_1" Label="Finish Puzzle 3" State="false"/>
 			<Setting Id="Area_chrono2_0" Label="Finish Puzzle 4" State="false"/>
 			<Setting Id="Area_chrono1_0" Label="Reach Time Streaming Room" State="false"/>
 		</Setting>
 			<Setting Id="End" Label="Final Split (Kain Last Hit) (Always Active)" State="false"/>
 	</Setting>
 	<Setting Id="SR2" Label="Soul Reaver 2" State="false">
-
+		<Setting Id="SR2A" Label="Area Splits" State="false">
+			<Setting Id="Area_strong3A_1" Label="Courtyard Ambush" State="false"/>
+			<Setting Id="Area_strong2A_1" Label="Statue Ambush" State="false"/>
+			<Setting Id="Area_pillars4A_0" Label="Met Kain At Pillars" State="false"/>
+			<Setting Id="Area_pillars8A_1" Label="Meet Elder God" State="false"/>
+			<Setting Id="Area_dark4A_0" Label="Enter Dark Shrine" State="false"/>
+			<Setting Id="Area_dark9A_1" Label="Turn On the Light" State="false"/>
+			<Setting Id="Area_dark6A_1" Label="Reach the Light Plate" State="false"/>
+			<Setting Id="EGReturn1" Label="Return to Elder God" State="false"/>
+		</Setting>
+		<Setting Id="SR2F" Label="Forge Splits" State="false">
+			<Setting Id="Info_7" Label="SR2Health" State="false"/>
+			<Setting Id="Info_9" Label="Blood Reaver" State="false"/>
+			<Setting Id="Info_12" Label="Forge Dark Reaver" State="false"/>
+			<Setting Id="Info_13" Label="Forge Light Reaver" State="false"/>
+			<Setting Id="Info_14" Label="Forge Air Reaver" State="false"/>
+			<Setting Id="Info_15" Label="Forge Fire Reaver" State="false"/>
+		</Setting>
 	</Setting>
 </Settings>  
