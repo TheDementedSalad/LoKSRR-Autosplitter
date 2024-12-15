@@ -39,6 +39,23 @@
 			<Setting Id="Area_chrono2_0" Label="Finish Puzzle 4" State="false"/>
 			<Setting Id="Area_chrono1_0" Label="Reach Time Streaming Room" State="false"/>
 		</Setting>
+		<Setting Id="SR1AB" Label="Abilities &amp; Reavers" State="false">
+			<Setting Id="SR1Info_0" Label="Wall Phase (Melchiah)" State="false"/>
+			<Setting Id="SR1Info_3" Label="Soul Reaver (Kain 1)" State="false"/>
+			<Setting Id="SR1Info_1" Label="Wall Climb (Zephon)" State="false"/>
+			<Setting Id="SR1Info_2" Label="Force (Tombs Turelim)" State="false"/>
+			<Setting Id="SR1Info_4" Label="Swim (Rahab)" State="false"/>
+			<Setting Id="SR1nfo_5" Label="Constrict (Dumah)" State="false"/>
+			<Setting Id="SR1Info_15" Label="Forge Fire Reaver" State="false"/>
+		</Setting>
+		<Setting Id="SR1R" Label="Glyphs" State="false">
+			<Setting Id="SR1Info_23" Label="Sunlight" State="false"/>
+			<Setting Id="SR1Info_21" Label="Water" State="false"/>
+			<Setting Id="SR1Info_22" Label="Fire" State="false"/>
+			<Setting Id="SR1Info_19" Label="Stone" State="false"/>
+			<Setting Id="SR1Info_18" Label="Force" State="false"/>
+			<Setting Id="SR1Info_20" Label="Sound" State="false"/>
+		</Setting>
 			<Setting Id="End" Label="Final Split (Kain Last Hit) (Always Active)" State="false"/>
 	</Setting>
 	<Setting Id="SR2" Label="Soul Reaver 2" State="false">
@@ -52,13 +69,13 @@
 			<Setting Id="Area_dark6A_1" Label="Reach the Light Plate" State="false"/>
 			<Setting Id="EGReturn1" Label="Return to Elder God" State="false"/>
 		</Setting>
-		<Setting Id="SR2F" Label="Forge Splits" State="false">
-			<Setting Id="Info_7" Label="SR2Health" State="false"/>
-			<Setting Id="Info_9" Label="Blood Reaver" State="false"/>
-			<Setting Id="Info_12" Label="Forge Dark Reaver" State="false"/>
-			<Setting Id="Info_13" Label="Forge Light Reaver" State="false"/>
-			<Setting Id="Info_14" Label="Forge Air Reaver" State="false"/>
-			<Setting Id="Info_15" Label="Forge Fire Reaver" State="false"/>
+		<Setting Id="SR2I" Label="Forge Splits" State="false">
+			<Setting Id="SR2Info_7" Label="SR2Health" State="false"/>
+			<Setting Id="SR2Info_9" Label="Blood Reaver" State="false"/>
+			<Setting Id="SR2Info_12" Label="Forge Dark Reaver" State="false"/>
+			<Setting Id="SR2Info_13" Label="Forge Light Reaver" State="false"/>
+			<Setting Id="SR2Info_14" Label="Forge Air Reaver" State="false"/>
+			<Setting Id="SR2nfo_15" Label="Forge Fire Reaver" State="false"/>
 		</Setting>
 	</Setting>
 </Settings>  
