@@ -3,6 +3,7 @@
 //Supports Load Remover
 //Autosplitter for SR1 & 2
 
+
 // Special thanks to:
 // TheDementedSalad - Created Splitter
 // Gemini REbirth - Dev for the game, helped with finding addresses and info for them
@@ -12,7 +13,6 @@ state("SRX", "Release")
 	string10 	diaName:	0xC0160;
 	byte		diaState:	0xC0194;
 	
-	byte 		SR1gameState: 	"sr1.dll", 0x2A7FC93; //3 Intro, 2 In Game Cutscene, 0 In Game
 	byte 		SR1Cutscene: 	"sr1.dll", 0x2B1DE0; //1 Cutscene, 0 No Cutscene
 	string10 	SR1map: 		"sr1.dll", 0x2A7FCA0;
 	byte		SR1paused: 		"sr1.dll", 0x2A7FCB6; //6 paused 2 unpaused
@@ -21,6 +21,13 @@ state("SRX", "Release")
 	byte 		SR2Cutscene: 	"sr2.dll", 0x482918; //1 Cutscene, 0 No Cutscene
 	string10 	SR2map: 		"sr2.dll", 0x5E92AD8;
 	byte		SR2paused: 		"sr2.dll", 0x5E92AEE; //6 paused 0 unpaused
+	int			SR2Info: 		"sr2.dll", 0x5E92268; //bit 0 Pass Through Walls, bit 1 Wall Crawling, bit 2 Force, bit 3 Soul Reaver, bit 4 Swim, bit 5 Constrict, bit 7 SR2Health
+	
+	/* Extra Info on Bits
+	byte		SR2I2: 		"sr2.dll", 0x5E92269; //bit 1 Blood Reaver, bit 2 Spectral, bit 3 Material, bit 4 Dark, bit 5 Light, bit 6 Air, bit 7 Fire
+	byte		SR2I3: 		"sr2.dll", 0x5E9226A; //bit 0 Water Reaver, bit 1 Earth, bit 2 Spirit, bit 3 Plane Shift Glyph, bit 4 Soul Reaver Glyph, bit 5 Dimension, bit 6 Time, bit 7 Mind
+	byte		SR2I4: 		"sr2.dll", 0x5E9226B; //bit 0 Conflict Glyph, bit 1 Death, bit 2 States, bit 3 Nature, bit 4 Energy, bit 5 Balance, bit 7 Disable Soul Reaver
+	*/
 }
 
 startup
@@ -28,8 +35,7 @@ startup
 	Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
 	vars.Helper.Settings.CreateFromXml("Components/LoKSRR.Settings.xml");
 	
-	//This allows is to look through a bitmask in order to get split information
-	vars.bitCheck = new Func<byte, int, bool>((byte val, int b) => (val & (1 << b)) != 0);
+	vars.bitCheck = new Func<int, int, bool>((int val, int b) => (val & (1 << b)) != 0);
 
 	vars.finalSplit = 0;
 }
@@ -97,6 +103,19 @@ split
 		
 		if(current.SR1map == "chrono1" && vars.finalSplit == 3 && current.SR1gameState == 2 && old.SR1gameState == 0){
 			return true;
+		}
+	}
+	
+	if(settings["SR2"]){
+		
+		if(current.SR2map == "pillars12A" && current.SR2Cutscene == 1 && current.diaName == "SRFNB07C"){
+			setting = "EGReturn1";
+		}
+		
+		for (int i = 0; i < sizeof(int) * 8; i++){
+			if (vars.bitCheck(current.SR2Info, i) && !vars.bitCheck(old.SR2Info, i)){
+				setting = "Info_" + i;
+			}
 		}
 	}
 	
