@@ -41,11 +41,11 @@
 		</Setting>
 		<Setting Id="SR1AB" Label="Abilities &amp; Reavers" State="false">
 			<Setting Id="SR1Info_0" Label="Wall Phase (Melchiah)" State="false"/>
-			<Setting Id="SR1Info_3" Label="Soul Reaver (Kain 1)" State="false"/>
+			<Setting Id="SR1Info_11" Label="Soul Reaver (Kain 1)" State="false"/>
 			<Setting Id="SR1Info_1" Label="Wall Climb (Zephon)" State="false"/>
 			<Setting Id="SR1Info_2" Label="Force (Tombs Turelim)" State="false"/>
 			<Setting Id="SR1Info_4" Label="Swim (Rahab)" State="false"/>
-			<Setting Id="SR1nfo_5" Label="Constrict (Dumah)" State="false"/>
+			<Setting Id="SR1Info_5" Label="Constrict (Dumah)" State="false"/>
 			<Setting Id="SR1Info_15" Label="Forge Fire Reaver" State="false"/>
 		</Setting>
 		<Setting Id="SR1R" Label="Glyphs" State="false">
