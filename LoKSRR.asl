@@ -13,15 +13,15 @@ state("SRX", "Release")
 	//string10 	diaName:	0xC0160;
 	//byte		diaState:	0xC0194;
 	
-	byte 		SR1Cutscene: 	"sr1.dll", 0x2B1DE0; //1 Cutscene, 0 No Cutscene
+	//byte 		SR1Cutscene: 	"sr1.dll", 0x2B1DE0; //1 Cutscene, 0 No Cutscene
 	//string10 	SR1map: 		"sr1.dll", 0x2A7FCA0;
 	//byte		SR1paused: 		"sr1.dll", 0x2A7FCB6; //6 paused 2 unpaused
-	int 		SR1x: 			"sr1.dll", 0x2B65DC;
+	//int 		SR1x: 			"sr1.dll", 0x2B65DC;
 	
-	byte 		SR2Cutscene: 	"sr2.dll", 0x482918; //1 Cutscene, 0 No Cutscene
-	string10 	SR2map: 		"sr2.dll", 0x5E92AD8;
-	byte		SR2paused: 		"sr2.dll", 0x5E92AEE; //6 paused 0 unpaused
-	int			SR2Info: 		"sr2.dll", 0x5E92268; //bit 0 Pass Through Walls, bit 1 Wall Crawling, bit 2 Force, bit 3 Soul Reaver, bit 4 Swim, bit 5 Constrict, bit 7 SR2Health
+	//bool 		SR2Cutscene: 	"sr2.dll", 0x482918; //1 Cutscene, 0 No Cutscene
+	//string10 	SR2map: 		"sr2.dll", 0x5E92AD8;
+	//byte		SR2paused: 		"sr2.dll", 0x5E92AEE; //6 paused 0 unpaused
+	//int		SR2Info: 		"sr2.dll", 0x5E92268; //bit 0 Pass Through Walls, bit 1 Wall Crawling, bit 2 Force, bit 3 Soul Reaver, bit 4 Swim, bit 5 Constrict, bit 7 SR2Health
 	
 	/* Extra Info on Bits
 	byte		SR2I2: 		"sr2.dll", 0x5E92269; //bit 1 Blood Reaver, bit 2 Spectral, bit 3 Material, bit 4 Dark, bit 5 Light, bit 6 Air, bit 7 Fire
@@ -44,14 +44,23 @@ init
 {
 	
 	IntPtr Dialogue = vars.Helper.ScanRel(3, "48 89 1d ???????? 48 89 1d ???????? 48 89 1d ???????? e8 ???????? 83 25 ?????????? 48 8d 0d");
-	IntPtr SR1States = vars.Helper.ScanRel("sr1.dll", 3, "48 8d 0d ?? ?? ?? ?? e8 ?? ?? ?? ?? 85 c0 75 ?? 83 0b");
+	IntPtr SR1States = vars.Helper.ScanRel("sr1.dll", 3, "48 8d 0d ?? ?? ?? ?? 4c 2b c7");
+	IntPtr SR2States = vars.Helper.ScanRel("sr2.dll", 3, "48 8d 0d ?? ?? ?? ?? 4c 2b c7");
 	
 	vars.Helper["diaState"] = vars.Helper.Make<byte>(Dialogue);
 	vars.Helper["diaName"] = vars.Helper.MakeString(Dialogue - 0x34);
+	vars.Helper["currGame"] = vars.Helper.Make<bool>(Dialogue - 0x39AC);
 	
 	vars.Helper["SR1map"] = vars.Helper.MakeString(SR1States);
 	vars.Helper["SR1paused"] = vars.Helper.Make<byte>(SR1States + 0x16);
 	vars.Helper["SR1Info"] = vars.Helper.Make<int>(SR1States - 0x844);
+	vars.Helper["SR1Cutscene"] = vars.Helper.Make<byte>(SR1States - 0x27CDEC0);
+	vars.Helper["SR1x"] = vars.Helper.Make<int>(SR1States - 0x27C96C4);
+	
+	vars.Helper["SR2map"] = vars.Helper.MakeString(SR2States);
+	vars.Helper["SR2paused"] = vars.Helper.Make<byte>(SR2States + 0x16);
+	vars.Helper["SR2Info"] = vars.Helper.Make<byte>(SR2States - 0x870);
+	vars.Helper["SR2Cutscene"] = vars.Helper.Make<byte>(SR2States - 0x5A101C0);
 	
 	
 	switch (modules.First().ModuleMemorySize)
@@ -76,8 +85,8 @@ update
 	vars.Helper.Update();
 	vars.Helper.MapPointers();
 	
-	if(settings["SR1"]){
-		if(current.SR1map == "chrono1" && current.SR1Cutscene == 2 && old.SR1Cutscene == 0){
+	if(!current.currGame){
+		if(current.SR1map == "chrono1" && current.SR1Cutscene == 1 && old.SR1Cutscene == 0){
 			vars.finalSplit++;
 			return true;
 		}
@@ -95,7 +104,7 @@ split
 	
 	string setting = "";
 	
-	if(settings["SR1"]){
+	if(!current.currGame){
 		if(current.SR1map != old.SR1map || current.SR1Cutscene != old.SR1Cutscene){
 			setting = "Area_" + current.SR1map + "_" + current.SR1Cutscene;
 		}
@@ -108,15 +117,15 @@ split
 			setting = "glass2";
 		}
 	
-		if(current.SR1map == "cathy42" && current.SR1Cutscene == 2 && current.SR1x == -812){
+		if(current.SR1map == "cathy42" && current.SR1Cutscene == 1 && current.SR1x == -812){
 			setting = "valve2";
 		}
 		
-		if(current.SR1map == "cathy46" && current.SR1Cutscene == 2 && current.SR1x == -4707){
+		if(current.SR1map == "cathy46" && current.SR1Cutscene == 1 && current.SR1x == -4707){
 			setting = "valve3";
 		}
 		
-		if(current.SR1map == "chrono1" && vars.finalSplit == 3 && current.SR1Cutscene == 2 && old.SR1Cutscene == 0){
+		if(current.SR1map == "chrono1" && vars.finalSplit == 3 && current.SR1Cutscene == 1 && old.SR1Cutscene == 0){
 			return true;
 		}
 		
@@ -127,7 +136,10 @@ split
 		}
 	}
 	
-	if(settings["SR2"]){
+	if(current.currGame){
+		if(current.SR2map != old.SR2map || current.SR2Cutscene != old.SR2Cutscene){
+			setting = "Area_" + current.SR2map + "_" + current.SR2Cutscene;
+		}
 		
 		if(current.SR2map == "pillars12A" && current.SR2Cutscene == 1 && current.diaName == "SRFNB07C"){
 			setting = "EGReturn1";
