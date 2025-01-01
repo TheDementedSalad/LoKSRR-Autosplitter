@@ -4,7 +4,7 @@
 			<Setting Id="Area_train6_0" Label="Defeated Sluagh" State="false"/>
 			<Setting Id="Area_pillars9_0" Label="Finish Tutorial" State="false"/>
 			<Setting Id="Area_huba4_0" Label="Dumahim Ambush" State="false"/>
-			<Setting Id="Area_out1_2" Label="Reach The Necropolis" State="false"/>
+			<Setting Id="Area_out1_1" Label="Reach The Necropolis" State="false"/>
 			<Setting Id="Area_skinnr14_0" Label="Finish Weights Puzzle" State="false"/>
 			<Setting Id="Area_skinnr5_0" Label="Reach Machinary Room" State="false"/>
 			<Setting Id="Area_skinnr9_0" Label="Reach Melchiah's Sanctum" State="false"/>
