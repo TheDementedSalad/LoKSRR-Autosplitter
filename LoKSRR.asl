@@ -46,6 +46,10 @@ init
 	IntPtr Dialogue = vars.Helper.ScanRel(3, "48 89 1d ???????? 48 89 1d ???????? 48 89 1d ???????? e8 ???????? 83 25 ?????????? 48 8d 0d");
 	IntPtr SR1States = vars.Helper.ScanRel("sr1.dll", 3, "48 8d 0d ?? ?? ?? ?? 4c 2b c7");
 	IntPtr SR2States = vars.Helper.ScanRel("sr2.dll", 3, "48 8d 0d ?? ?? ?? ?? 4c 2b c7");
+	IntPtr SR1Cutscene = vars.Helper.ScanRel("sr1.dll", 3, "83 3d ?? ?? ?? ?? ?? 89 15");
+	IntPtr SR2Cutscene = vars.Helper.ScanRel("sr2.dll", 3, "8b 0d ?? ?? ?? ?? 41 8b c0");
+	IntPtr SR1Info = vars.Helper.ScanRel("sr1.dll", 3, "89 05 ?? ?? ?? ?? 0b 05");
+	IntPtr SR2Info = vars.Helper.ScanRel("sr2.dll", 3, "89 05 ?? ?? ?? ?? 0b 05");
 	
 	vars.Helper["diaState"] = vars.Helper.Make<byte>(Dialogue);
 	vars.Helper["diaName"] = vars.Helper.MakeString(Dialogue - 0x34);
@@ -53,14 +57,14 @@ init
 	
 	vars.Helper["SR1map"] = vars.Helper.MakeString(SR1States);
 	vars.Helper["SR1paused"] = vars.Helper.Make<byte>(SR1States + 0x16);
-	vars.Helper["SR1Info"] = vars.Helper.Make<int>(SR1States - 0x844);
-	vars.Helper["SR1Cutscene"] = vars.Helper.Make<byte>(SR1States - 0x27CDEC0);
+	vars.Helper["SR1Info"] = vars.Helper.Make<int>(SR1Info-);
+	vars.Helper["SR1Cutscene"] = vars.Helper.Make<byte>(SR1Cutscene);
 	vars.Helper["SR1x"] = vars.Helper.Make<int>(SR1States - 0x27C96C4);
 	
 	vars.Helper["SR2map"] = vars.Helper.MakeString(SR2States);
 	vars.Helper["SR2paused"] = vars.Helper.Make<byte>(SR2States + 0x16);
-	vars.Helper["SR2Info"] = vars.Helper.Make<byte>(SR2States - 0x870);
-	vars.Helper["SR2Cutscene"] = vars.Helper.Make<byte>(SR2States - 0x5A101C0);
+	vars.Helper["SR2Info"] = vars.Helper.Make<byte>(SR2Info);
+	vars.Helper["SR2Cutscene"] = vars.Helper.Make<byte>(SR2Cutscene);
 	
 	
 	switch (modules.First().ModuleMemorySize)
