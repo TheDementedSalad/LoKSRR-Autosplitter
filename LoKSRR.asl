@@ -10,24 +10,44 @@
 
 state("SRX", "Release")
 {
-	//string10 	diaName:	0xC0160;
-	//byte		diaState:	0xC0194;
+	string10 	diaName:	0xC0160;
+	byte		diaState:	0xC0194;
+	bool		currGame:	0xBC7B4;
 	
-	//byte 		SR1Cutscene: 	"sr1.dll", 0x2B1DE0; //1 Cutscene, 0 No Cutscene
-	//string10 	SR1map: 		"sr1.dll", 0x2A7FCA0;
-	//byte		SR1paused: 		"sr1.dll", 0x2A7FCB6; //6 paused 2 unpaused
-	//int 		SR1x: 			"sr1.dll", 0x2B65DC;
+	byte 		SR1Cutscene: 	"sr1.dll", 0x2B1DE0; //1 Cutscene, 0 No Cutscene
+	string10 	SR1map: 		"sr1.dll", 0x2A7FCA0;
+	byte		SR1paused: 		"sr1.dll", 0x2A7FCB6; //6 paused 0 unpaused
+	int 		SR1Info: 		"sr1.dll", 0x2A7F45C;
+	int 		SR1x: 			"sr1.dll", 0x2B65DC;
 	
-	//bool 		SR2Cutscene: 	"sr2.dll", 0x482918; //1 Cutscene, 0 No Cutscene
-	//string10 	SR2map: 		"sr2.dll", 0x5E92AD8;
-	//byte		SR2paused: 		"sr2.dll", 0x5E92AEE; //6 paused 0 unpaused
-	//int		SR2Info: 		"sr2.dll", 0x5E92268; //bit 0 Pass Through Walls, bit 1 Wall Crawling, bit 2 Force, bit 3 Soul Reaver, bit 4 Swim, bit 5 Constrict, bit 7 SR2Health
+	bool 		SR2Cutscene: 	"sr2.dll", 0x482918; //1 Cutscene, 0 No Cutscene
+	string10 	SR2map: 		"sr2.dll", 0x5E92AD8;
+	byte		SR2paused: 		"sr2.dll", 0x5E92AEE; //6 paused 0 unpaused
+	int			SR2Info: 		"sr2.dll", 0x5E92268; //bit 0 Pass Through Walls, bit 1 Wall Crawling, bit 2 Force, bit 3 Soul Reaver, bit 4 Swim, bit 5 Constrict, bit 7 SR2Health
 	
 	/* Extra Info on Bits
 	byte		SR2I2: 		"sr2.dll", 0x5E92269; //bit 1 Blood Reaver, bit 2 Spectral, bit 3 Material, bit 4 Dark, bit 5 Light, bit 6 Air, bit 7 Fire
 	byte		SR2I3: 		"sr2.dll", 0x5E9226A; //bit 0 Water Reaver, bit 1 Earth, bit 2 Spirit, bit 3 Plane Shift Glyph, bit 4 Soul Reaver Glyph, bit 5 Dimension, bit 6 Time, bit 7 Mind
 	byte		SR2I4: 		"sr2.dll", 0x5E9226B; //bit 0 Conflict Glyph, bit 1 Death, bit 2 States, bit 3 Nature, bit 4 Energy, bit 5 Balance, bit 7 Disable Soul Reaver
 	*/
+}
+
+state("SRX", "Patch1")
+{
+	string10 	diaName:	0xC2170;
+	byte		diaState:	0xC21A4;
+	bool		currGame:	0xBE7E4;
+	
+	byte 		SR1Cutscene: 	"sr1.dll", 0x2B8F80; 
+	string10 	SR1map: 		"sr1.dll", 0x2A86FC0;
+	byte		SR1paused: 		"sr1.dll", 0x2A86FD6; 
+	int 		SR1Info: 		"sr1.dll", 0x2A8677C;
+	int 		SR1x: 			"sr1.dll", 0x2BD77C;
+	
+	bool 		SR2Cutscene: 	"sr2.dll", 0x488958;
+	string10 	SR2map: 		"sr2.dll", 0x5E98AF8;
+	byte		SR2paused: 		"sr2.dll", 0x5E98B0E; 
+	int			SR2Info: 		"sr2.dll", 0x5E98288; 
 }
 
 startup
@@ -42,35 +62,13 @@ startup
 
 init
 {
-	
-	IntPtr Dialogue = vars.Helper.ScanRel(3, "48 89 1d ???????? 48 89 1d ???????? 48 89 1d ???????? e8 ???????? 83 25 ?????????? 48 8d 0d");
-	IntPtr SR1States = vars.Helper.ScanRel("sr1.dll", 3, "48 8d 0d ?? ?? ?? ?? 4c 2b c7");
-	IntPtr SR2States = vars.Helper.ScanRel("sr2.dll", 3, "48 8d 0d ?? ?? ?? ?? 4c 2b c7");
-	IntPtr SR1Cutscene = vars.Helper.ScanRel("sr1.dll", 3, "83 3d ?? ?? ?? ?? ?? 89 15");
-	IntPtr SR2Cutscene = vars.Helper.ScanRel("sr2.dll", 3, "8b 0d ?? ?? ?? ?? 41 8b c0");
-	IntPtr SR1Info = vars.Helper.ScanRel("sr1.dll", 3, "89 05 ?? ?? ?? ?? 0b 05");
-	IntPtr SR2Info = vars.Helper.ScanRel("sr2.dll", 3, "89 05 ?? ?? ?? ?? 0b 05");
-	
-	vars.Helper["diaState"] = vars.Helper.Make<byte>(Dialogue);
-	vars.Helper["diaName"] = vars.Helper.MakeString(Dialogue - 0x34);
-	vars.Helper["currGame"] = vars.Helper.Make<bool>(Dialogue - 0x39AC);
-	
-	vars.Helper["SR1map"] = vars.Helper.MakeString(SR1States);
-	vars.Helper["SR1paused"] = vars.Helper.Make<byte>(SR1States + 0x16);
-	vars.Helper["SR1Info"] = vars.Helper.Make<int>(SR1Info);
-	vars.Helper["SR1Cutscene"] = vars.Helper.Make<byte>(SR1Cutscene);
-	vars.Helper["SR1x"] = vars.Helper.Make<int>(SR1States - 0x27C96C4);
-	
-	vars.Helper["SR2map"] = vars.Helper.MakeString(SR2States);
-	vars.Helper["SR2paused"] = vars.Helper.Make<byte>(SR2States + 0x16);
-	vars.Helper["SR2Info"] = vars.Helper.Make<byte>(SR2Info);
-	vars.Helper["SR2Cutscene"] = vars.Helper.Make<byte>(SR2Cutscene);
-	
-	
 	switch (modules.First().ModuleMemorySize)
 	{
 		case (111214592):
 			version = "Release";
+			break;
+		case (111222784):
+			version = "Patch1";
 			break;
 	}
 	
