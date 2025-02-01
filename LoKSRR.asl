@@ -57,7 +57,7 @@ init
 	
 	vars.Helper["SR1map"] = vars.Helper.MakeString(SR1States);
 	vars.Helper["SR1paused"] = vars.Helper.Make<byte>(SR1States + 0x16);
-	vars.Helper["SR1Info"] = vars.Helper.Make<int>(SR1Info-);
+	vars.Helper["SR1Info"] = vars.Helper.Make<int>(SR1Info);
 	vars.Helper["SR1Cutscene"] = vars.Helper.Make<byte>(SR1Cutscene);
 	vars.Helper["SR1x"] = vars.Helper.Make<int>(SR1States - 0x27C96C4);
 	
