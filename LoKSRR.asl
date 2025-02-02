@@ -12,7 +12,7 @@ state("SRX", "Release")
 {
 	string10 	diaName:	0xC0160;
 	byte		diaState:	0xC0194;
-	bool		currGame:	0xBC7B4;
+	bool		currGame:	0xBC7E8;
 	
 	byte 		SR1Cutscene: 	"sr1.dll", 0x2B1DE0; //1 Cutscene, 0 No Cutscene
 	string10 	SR1map: 		"sr1.dll", 0x2A7FCA0;
