@@ -14,7 +14,7 @@ state("SRX", "Release")
 	byte		diaState:	0xC0194;
 	bool		currGame:	0xBC7E8;
 	
-	byte 		SR1Cutscene: 	"sr1.dll", 0x2B1DE0; //1 Cutscene, 0 No Cutscene
+	bool 		SR1Cutscene: 	"sr1.dll", 0x2B1DE0; //1 Cutscene, 0 No Cutscene
 	string10 	SR1map: 		"sr1.dll", 0x2A7FCA0;
 	byte		SR1paused: 		"sr1.dll", 0x2A7FCB6; //6 paused 0 unpaused
 	int 		SR1Info: 		"sr1.dll", 0x2A7F45C;
@@ -38,7 +38,7 @@ state("SRX", "Patch1")
 	byte		diaState:	0xC21A4;
 	bool		currGame:	0xBE7E4;
 	
-	byte 		SR1Cutscene: 	"sr1.dll", 0x2B8F80; 
+	bool 		SR1Cutscene: 	"sr1.dll", 0x2B8F80; 
 	string10 	SR1map: 		"sr1.dll", 0x2A86FC0;
 	byte		SR1paused: 		"sr1.dll", 0x2A86FD6; 
 	int 		SR1Info: 		"sr1.dll", 0x2A8677C;
@@ -88,7 +88,7 @@ update
 	vars.Helper.MapPointers();
 	
 	if(!current.currGame){
-		if(current.SR1map == "chrono1" && current.SR1Cutscene == 1 && old.SR1Cutscene == 0){
+		if(current.SR1map == "chrono1" && current.SR1Cutscene && old.SR1Cutscene){
 			vars.finalSplit++;
 			return true;
 		}
@@ -98,7 +98,7 @@ update
 
 start
 {
-	return current.SR1Cutscene == 1 && old.SR1Cutscene == 0 && current.SR1map == "under1" || current.SR2Cutscene == 1 && old.SR2Cutscene == 0 && current.SR2map == "strong1A";
+	return current.SR1Cutscene && old.SR1Cutscene && current.SR1map == "under1" || current.SR2Cutscene && old.SR2Cutscene && current.SR2map == "strong1A";
 }
 
 split
@@ -111,23 +111,23 @@ split
 			setting = "Area_" + current.SR1map + "_" + current.SR1Cutscene;
 		}
 		
-		if((current.SR1map == "cathy60" || current.SR1map == "cathy76") && current.SR1Cutscene == 1){
+		if((current.SR1map == "cathy60" || current.SR1map == "cathy76") && current.SR1Cutscene){
 			setting = "glass1";
 		}
 	
-		if((current.SR1map == "cathy59" || current.SR1map == "cathy75") && current.SR1Cutscene == 1){
+		if((current.SR1map == "cathy59" || current.SR1map == "cathy75") && current.SR1Cutscene){
 			setting = "glass2";
 		}
 	
-		if(current.SR1map == "cathy42" && current.SR1Cutscene == 1 && current.SR1x == -812){
+		if(current.SR1map == "cathy42" && current.SR1Cutscene && current.SR1x == -812){
 			setting = "valve2";
 		}
 		
-		if(current.SR1map == "cathy46" && current.SR1Cutscene == 1 && current.SR1x == -4707){
+		if(current.SR1map == "cathy46" && current.SR1Cutscene && current.SR1x == -4707){
 			setting = "valve3";
 		}
 		
-		if(current.SR1map == "chrono1" && vars.finalSplit == 3 && current.SR1Cutscene == 1 && old.SR1Cutscene == 0){
+		if(current.SR1map == "chrono1" && vars.finalSplit == 3 && current.SR1Cutscene && old.SR1Cutscene){
 			return true;
 		}
 		
