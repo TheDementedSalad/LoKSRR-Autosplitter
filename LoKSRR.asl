@@ -14,13 +14,13 @@ state("SRX", "Release")
 	byte		diaState:	0xC0194;
 	bool		currGame:	0xBC7E8;
 	
-	bool 		SR1Cutscene: 	"sr1.dll", 0x2B1DE0; //1 Cutscene, 0 No Cutscene
+	byte 		SR1Cutscene: 	"sr1.dll", 0x2B1DE0; //1 Cutscene, 0 No Cutscene
 	string10 	SR1map: 		"sr1.dll", 0x2A7FCA0;
 	byte		SR1paused: 		"sr1.dll", 0x2A7FCB6; //6 paused 0 unpaused
 	int 		SR1Info: 		"sr1.dll", 0x2A7F45C;
 	int 		SR1x: 			"sr1.dll", 0x2B65DC;
 	
-	bool 		SR2Cutscene: 	"sr2.dll", 0x482918; //1 Cutscene, 0 No Cutscene
+	byte 		SR2Cutscene: 	"sr2.dll", 0x482918; //1 Cutscene, 0 No Cutscene
 	string10 	SR2map: 		"sr2.dll", 0x5E92AD8;
 	byte		SR2paused: 		"sr2.dll", 0x5E92AEE; //6 paused 0 unpaused
 	int			SR2Info: 		"sr2.dll", 0x5E92268; //bit 0 Pass Through Walls, bit 1 Wall Crawling, bit 2 Force, bit 3 Soul Reaver, bit 4 Swim, bit 5 Constrict, bit 7 SR2Health
@@ -38,13 +38,13 @@ state("SRX", "Patch1")
 	byte		diaState:	0xC21A4;
 	bool		currGame:	0xBE7E4;
 	
-	bool 		SR1Cutscene: 	"sr1.dll", 0x2B8F80; 
+	byte 		SR1Cutscene: 	"sr1.dll", 0x2B8F80; 
 	string10 	SR1map: 		"sr1.dll", 0x2A86FC0;
 	byte		SR1paused: 		"sr1.dll", 0x2A86FD6; 
 	int 		SR1Info: 		"sr1.dll", 0x2A8677C;
 	int 		SR1x: 			"sr1.dll", 0x2BD77C;
 	
-	bool 		SR2Cutscene: 	"sr2.dll", 0x488958;
+	byte 		SR2Cutscene: 	"sr2.dll", 0x488958;
 	string10 	SR2map: 		"sr2.dll", 0x5E98AF8;
 	byte		SR2paused: 		"sr2.dll", 0x5E98B0E; 
 	int			SR2Info: 		"sr2.dll", 0x5E98288; 
@@ -98,7 +98,7 @@ update
 
 start
 {
-	return current.SR1Cutscene && old.SR1Cutscene && current.SR1map == "under1" || current.SR2Cutscene && old.SR2Cutscene && current.SR2map == "strong1A";
+	return current.SR1Cutscene == 1 && old.SR1Cutscene == 0 && current.SR1map == "under1" || current.SR2Cutscene == 1 && old.SR2Cutscene == 0 && current.SR2map == "strong1A";
 }
 
 split
@@ -111,23 +111,23 @@ split
 			setting = "Area_" + current.SR1map + "_" + current.SR1Cutscene;
 		}
 		
-		if((current.SR1map == "cathy60" || current.SR1map == "cathy76") && current.SR1Cutscene){
+		if((current.SR1map == "cathy60" || current.SR1map == "cathy76") && current.SR1Cutscene == 1){
 			setting = "glass1";
 		}
 	
-		if((current.SR1map == "cathy59" || current.SR1map == "cathy75") && current.SR1Cutscene){
+		if((current.SR1map == "cathy59" || current.SR1map == "cathy75") && current.SR1Cutscene == 1){
 			setting = "glass2";
 		}
 	
-		if(current.SR1map == "cathy42" && current.SR1Cutscene && current.SR1x == -812){
+		if(current.SR1map == "cathy42" && current.SR1Cutscene == 1 && current.SR1x == -812){
 			setting = "valve2";
 		}
 		
-		if(current.SR1map == "cathy46" && current.SR1Cutscene && current.SR1x == -4707){
+		if(current.SR1map == "cathy46" && current.SR1Cutscene == 1 && current.SR1x == -4707){
 			setting = "valve3";
 		}
 		
-		if(current.SR1map == "chrono1" && vars.finalSplit == 3 && current.SR1Cutscene && old.SR1Cutscene){
+		if(current.SR1map == "chrono1" && vars.finalSplit == 3 && current.SR1Cutscene == 1 && old.SR1Cutscene == 0){
 			return true;
 		}
 		
