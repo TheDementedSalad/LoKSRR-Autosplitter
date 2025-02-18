@@ -88,7 +88,7 @@ update
 	vars.Helper.MapPointers();
 	
 	if(!current.currGame){
-		if(current.SR1map == "chrono1" && current.SR1Cutscene && old.SR1Cutscene){
+		if(current.SR1map == "chrono1" && current.SR1Cutscene == 1 && old.SR1Cutscene == 0){
 			vars.finalSplit++;
 			return true;
 		}
