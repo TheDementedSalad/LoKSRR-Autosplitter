@@ -56,7 +56,7 @@
 			<Setting Id="SR1Info_18" Label="Force" State="false"/>
 			<Setting Id="SR1Info_20" Label="Sound" State="false"/>
 		</Setting>
-		<Setting Id="End1" Label="Final Split (Kain Last Hit) (Always Active)" State="false"/>
+		<Setting Id="End1" Label="Final Split (Kain Last Hit) (Always Active)" State="true"/>
 	</Setting>
 	<Setting Id="SR2" Label="Soul Reaver 2" State="false">
 		<Setting Id="SR2A" Label="Area Splits" State="false">
@@ -97,6 +97,6 @@
 			<Setting Id="SR2Info_14" Label="Forge Air Reaver" State="false"/>
 			<Setting Id="SR2nfo_15" Label="Forge Fire Reaver" State="false"/>
 		</Setting>
-		<Setting Id="End2" Label="Final Split (Raziel Last Hit) (Always Active)" State="false"/>
+		<Setting Id="End2" Label="Final Split (Raziel Last Hit) (Always Active)" State="true"/>
 	</Setting>
 </Settings>
