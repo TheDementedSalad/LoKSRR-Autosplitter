@@ -57,7 +57,8 @@ startup
 	
 	vars.bitCheck = new Func<int, int, bool>((int val, int b) => (val & (1 << b)) != 0);
 
-	vars.finalSplit = 0;
+	vars.finalSplit1 = 0;
+	vars.finalSplit2 = 0;
 }
 
 init
@@ -79,7 +80,8 @@ onStart
 {
 	//resets the splits when a new run starts
 	vars.completedSplits.Clear();
-	vars.finalSplit = 0;
+	vars.finalSplit1 = 0;
+	vars.finalSplit2 = 0;
 }
 
 update
@@ -89,7 +91,14 @@ update
 	
 	if(!current.currGame){
 		if(current.SR1map == "chrono1" && current.SR1Cutscene == 1 && old.SR1Cutscene == 0){
-			vars.finalSplit++;
+			vars.finalSplit1++;
+			return true;
+		}
+	}
+	
+	if(current.currGame){
+		if(current.SR2map == "strong2c" && current.SR2Cutscene == 1 && old.SR2Cutscene == 0){
+			vars.finalSplit2++;
 			return true;
 		}
 	}
@@ -127,7 +136,7 @@ split
 			setting = "valve3";
 		}
 		
-		if(current.SR1map == "chrono1" && vars.finalSplit == 3 && current.SR1Cutscene == 1 && old.SR1Cutscene == 0){
+		if(current.SR1map == "chrono1" && vars.finalSplit1 == 3 && current.SR1Cutscene == 1 && old.SR1Cutscene == 0){
 			return true;
 		}
 		
@@ -143,8 +152,20 @@ split
 			setting = "Area_" + current.SR2map + "_" + current.SR2Cutscene;
 		}
 		
-		if(current.SR2map == "pillars12A" && current.SR2Cutscene == 1 && current.diaName == "SRFNB07C"){
+		if(current.SR2map == "pillars12A" && current.SR2Cutscene == 1 && old.SR2Cutscene == 0 && vars.bitCheck(current.SR2Info, 12)){
 			setting = "EGReturn1";
+		}
+		
+		if(current.SR2map == "strong4A" && current.SR2Cutscene == 1 && old.SR2Cutscene == 0 && vars.bitCheck(current.SR2Info, 13)){
+			setting = "MeetKain1";
+		}
+		
+		if(current.SR2map == "janos4A" && current.SR2Cutscene == 1 && old.SR2Cutscene == 0 && vars.bitCheck(current.SR2Info, 15)){
+			setting = "UschAmbush1";
+		}
+		
+		if(current.SR2map == "strrong2c" && vars.finalSplit2 == 2 && current.SR2Cutscene == 1 && old.SR2Cutscene == 0){
+			return true;
 		}
 		
 		for (int i = 0; i < sizeof(int) * 8; i++){
