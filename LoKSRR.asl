@@ -15,15 +15,15 @@ state("SRX", "Release")
 	bool		currGame:	0xBC7E8;
 	
 	byte 		SR1Cutscene: 	"sr1.dll", 0x2B1DE0; //1 Cutscene, 0 No Cutscene
-	string10 	SR1map: 		"sr1.dll", 0x2A7FCA0;
-	byte		SR1paused: 		"sr1.dll", 0x2A7FCB6; //6 paused 0 unpaused
-	int 		SR1Info: 		"sr1.dll", 0x2A7F45C;
-	int 		SR1x: 			"sr1.dll", 0x2B65DC;
+	string10 	SR1map: 	"sr1.dll", 0x2A7FCA0;
+	byte		SR1paused: 	"sr1.dll", 0x2A7FCB6; //6 paused 0 unpaused
+	int 		SR1Info: 	"sr1.dll", 0x2A7F45C;
+	int 		SR1x: 		"sr1.dll", 0x2B65DC;
 	
 	byte 		SR2Cutscene: 	"sr2.dll", 0x482918; //1 Cutscene, 0 No Cutscene
-	string10 	SR2map: 		"sr2.dll", 0x5E92AD8;
-	byte		SR2paused: 		"sr2.dll", 0x5E92AEE; //6 paused 0 unpaused
-	int			SR2Info: 		"sr2.dll", 0x5E92268; //bit 0 Pass Through Walls, bit 1 Wall Crawling, bit 2 Force, bit 3 Soul Reaver, bit 4 Swim, bit 5 Constrict, bit 7 SR2Health
+	string10 	SR2map: 	"sr2.dll", 0x5E92AD8;
+	byte		SR2paused: 	"sr2.dll", 0x5E92AEE; //6 paused 0 unpaused
+	int		SR2Info: 	"sr2.dll", 0x5E92268; //bit 0 Pass Through Walls, bit 1 Wall Crawling, bit 2 Force, bit 3 Soul Reaver, bit 4 Swim, bit 5 Constrict, bit 7 SR2Health
 	
 	/* Extra Info on Bits
 	byte		SR2I2: 		"sr2.dll", 0x5E92269; //bit 1 Blood Reaver, bit 2 Spectral, bit 3 Material, bit 4 Dark, bit 5 Light, bit 6 Air, bit 7 Fire
@@ -39,15 +39,15 @@ state("SRX", "Patch1")
 	bool		currGame:	0xBE7E4;
 	
 	byte 		SR1Cutscene: 	"sr1.dll", 0x2B8F80; 
-	string10 	SR1map: 		"sr1.dll", 0x2A86FC0;
-	byte		SR1paused: 		"sr1.dll", 0x2A86FD6; 
-	int 		SR1Info: 		"sr1.dll", 0x2A8677C;
-	int 		SR1x: 			"sr1.dll", 0x2BD77C;
+	string10 	SR1map: 	"sr1.dll", 0x2A86FC0;
+	byte		SR1paused: 	"sr1.dll", 0x2A86FD6; 
+	int 		SR1Info: 	"sr1.dll", 0x2A8677C;
+	int 		SR1x: 		"sr1.dll", 0x2BD77C;
 	
 	byte 		SR2Cutscene: 	"sr2.dll", 0x488958;
-	string10 	SR2map: 		"sr2.dll", 0x5E98AF8;
-	byte		SR2paused: 		"sr2.dll", 0x5E98B0E; 
-	int			SR2Info: 		"sr2.dll", 0x5E98288; 
+	string10 	SR2map: 	"sr2.dll", 0x5E98AF8;
+	byte		SR2paused: 	"sr2.dll", 0x5E98B0E; 
+	int		SR2Info: 	"sr2.dll", 0x5E98288; 
 }
 
 startup
