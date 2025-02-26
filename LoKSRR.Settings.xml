@@ -56,18 +56,38 @@
 			<Setting Id="SR1Info_18" Label="Force" State="false"/>
 			<Setting Id="SR1Info_20" Label="Sound" State="false"/>
 		</Setting>
-			<Setting Id="End" Label="Final Split (Kain Last Hit) (Always Active)" State="false"/>
+		<Setting Id="End1" Label="Final Split (Kain Last Hit) (Always Active)" State="false"/>
 	</Setting>
 	<Setting Id="SR2" Label="Soul Reaver 2" State="false">
 		<Setting Id="SR2A" Label="Area Splits" State="false">
 			<Setting Id="Area_strong3A_1" Label="Courtyard Ambush" State="false"/>
 			<Setting Id="Area_strong2A_1" Label="Statue Ambush" State="false"/>
 			<Setting Id="Area_pillars4A_0" Label="Met Kain At Pillars" State="false"/>
-			<Setting Id="Area_pillars8A_1" Label="Meet Elder God" State="false"/>
+			<Setting Id="Area_pillars8A_1" Label="Elder God I" State="false"/>
 			<Setting Id="Area_dark4A_0" Label="Enter Dark Shrine" State="false"/>
 			<Setting Id="Area_dark9A_1" Label="Turn On the Light" State="false"/>
 			<Setting Id="Area_dark6A_1" Label="Reach the Light Plate" State="false"/>
-			<Setting Id="EGReturn1" Label="Return to Elder God" State="false"/>
+			<Setting Id="EGReturn1" Label="Elder God II" State="false"/>
+			<Setting Id="Area_lake9a_0" Label="Enter the Light Shrine" State="false"/>
+			<Setting Id="Area_light9A_1" Label="First Sun Plate Ambush" State="false"/>
+			<Setting Id="Area_light16A_1" Label="Second Sun Plate Ambush" State="false"/>
+			<Setting Id="MeetKain1" Label="Meet Kain At the Tomb" State="false"/>
+			<Setting Id="Area_tsd1a_0" Label="Arrive In the Future" State="false"/>
+			<Setting Id="Area_strong4b_1" Label="Find Mobius' Statue" State="false"/>
+			<Setting Id="Area_pillars3b_1" Label="Meet Ariel At Pillars" State="false"/>
+			<Setting Id="Area_pillars12b_1" Label="Elder God III" State="false"/>
+			<Setting Id="Area_janosb4A_0" Label="Reach Gates of Uschtenheim" State="false"/>
+			<Setting Id="Area_air1a_1" Label="Enter Air Shrine" State="false"/>
+			<Setting Id="Area_air18A_1" Label="Place Blue Heart" State="false"/>
+			<Setting Id="Area_air14A_1" Label="Place Green Heart" State="false"/>
+			<Setting Id="Area_air16A_1" Label="Place Read Heart" State="false"/>
+			<Setting Id="Area_swamp10c_0" Label="Arrive In the Past" State="false"/>
+			<Setting Id="Area_janos7A" Label="Outside Janos' Refuge" State="false"/>
+			<Setting Id="Area_janos12A_1" Label="Enter Second Puzzle Area" State="false"/>
+			<Setting Id="Area_fire2a_1" Label="Enter Fire Forge" State="false"/>
+			<Setting Id="UschAmbush1" Label="Uschtenheim Ambush" State="false"/>
+			<Setting Id="Area_pillars12c_1" Label="Elder God IV" State="false"/>
+			<Setting Id="Area_strong3c_1" Label="Start Brothers Gauntlet" State="false"/>
 		</Setting>
 		<Setting Id="SR2I" Label="Forge Splits" State="false">
 			<Setting Id="SR2Info_7" Label="SR2Health" State="false"/>
@@ -77,5 +97,6 @@
 			<Setting Id="SR2Info_14" Label="Forge Air Reaver" State="false"/>
 			<Setting Id="SR2nfo_15" Label="Forge Fire Reaver" State="false"/>
 		</Setting>
+		<Setting Id="End2" Label="Final Split (Raziel Last Hit) (Always Active)" State="false"/>
 	</Setting>
-</Settings>  
+</Settings>
