@@ -3,6 +3,7 @@
 //Supports Load Remover
 //Autosplitter for SR1 & 2
 
+// Patch 2 support added by EODTex
 
 // Special thanks to:
 // TheDementedSalad - Created Splitter
@@ -50,6 +51,24 @@ state("SRX", "Patch1")
 	int		SR2Info: 	"sr2.dll", 0x5E98288; 
 }
 
+state("SRX", "Patch2")
+{
+	string10 	diaName:	0xC3180;
+	byte		diaState:	0xC31B4; //this is just a guess based on location wrt diaName in previous versions
+	bool		currGame:	0xBF7E4; //not very tested
+	
+	byte 		SR1Cutscene: 	"sr1.dll", 0x2BB4E0; 
+	string10 	SR1map: 	"sr1.dll", 0x2A89520;
+	byte		SR1paused: 	"sr1.dll", 0x2A89536;	//this halves timer speed instead of pausing?
+	int 		SR1Info: 	"sr1.dll", 0x2A88CDC;
+	int 		SR1x: 		"sr1.dll", 0xD4B1A0, 0x34; //pointer for consistent value
+	
+	byte 		SR2Cutscene: 	"sr2.dll", 0x4899F8;
+	string10 	SR2map: 	"sr2.dll", 0x5E99BB8; 
+	byte		SR2paused: 	"sr2.dll", 0x5E99BCE;	//this halves timer speed instead of pausing?
+	int		SR2Info: 	"sr2.dll", 0x5E99348;
+}
+
 startup
 {
 	Assembly.Load(File.ReadAllBytes("Components/asl-help")).CreateInstance("Basic");
@@ -71,6 +90,9 @@ init
 		case (111222784):
 			version = "Patch1";
 			break;
+        case (111226880):
+            version = "Patch2";
+            break;
 	}
 	
 	vars.completedSplits = new HashSet<string>();
