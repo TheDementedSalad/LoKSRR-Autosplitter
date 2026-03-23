@@ -61,7 +61,7 @@ state("SRX", "Patch2")
 	string10 	SR1map: 	"sr1.dll", 0x2A89520;
 	byte		SR1paused: 	"sr1.dll", 0x2A89536;	//this halves timer speed instead of pausing?
 	int 		SR1Info: 	"sr1.dll", 0x2A88CDC;
-	int 		SR1x: 		"sr1.dll", 0xD4B1A0, 0x34; //pointer for consistent value
+	int 		SR1x: 			"sr1.dll", 0x2C1E5C;
 	
 	byte 		SR2Cutscene: 	"sr2.dll", 0x4899F8;
 	string10 	SR2map: 	"sr2.dll", 0x5E99BB8; 
