@@ -186,7 +186,7 @@ split
 			setting = "UschAmbush1";
 		}
 		
-		if(current.SR2map == "strrong2c" && vars.finalSplit2 == 2 && current.SR2Cutscene == 1 && old.SR2Cutscene == 0){
+		if(current.SR2map == "strong2c" && vars.finalSplit2 == 2 && current.SR2Cutscene == 1 && old.SR2Cutscene == 0){
 			return true;
 		}
 		
