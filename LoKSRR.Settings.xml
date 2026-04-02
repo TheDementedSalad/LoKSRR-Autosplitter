@@ -68,7 +68,7 @@
 			<Setting Id="Area_dark9A_1" Label="Turn On the Light" State="false"/>
 			<Setting Id="Area_dark6A_1" Label="Reach the Light Plate" State="false"/>
 			<Setting Id="EGReturn1" Label="Elder God II" State="false"/>
-			<Setting Id="Area_lake9a_0" Label="Enter the Light Shrine" State="false"/>
+			<Setting Id="Area_lake9A_0" Label="Enter the Light Shrine" State="false"/>
 			<Setting Id="Area_light9A_1" Label="First Sun Plate Ambush" State="false"/>
 			<Setting Id="Area_light16A_1" Label="Second Sun Plate Ambush" State="false"/>
 			<Setting Id="MeetKain1" Label="Meet Kain At the Tomb" State="false"/>
@@ -82,9 +82,10 @@
 			<Setting Id="Area_air14A_1" Label="Place Green Heart" State="false"/>
 			<Setting Id="Area_air16A_1" Label="Place Read Heart" State="false"/>
 			<Setting Id="Area_swamp10c_0" Label="Arrive In the Past" State="false"/>
-			<Setting Id="Area_janos7A" Label="Outside Janos' Refuge" State="false"/>
+			<Setting Id="Area_janos7A_1" Label="Outside Janos' Refuge" State="false"/>
+			<Setting Id="Area_janos11A_0" Label="Enter First Puzzle Area" State="false"/>
 			<Setting Id="Area_janos12A_1" Label="Enter Second Puzzle Area" State="false"/>
-			<Setting Id="Area_fire2a_1" Label="Enter Fire Forge" State="false"/>
+			<Setting Id="Area_fire1a_0" Label="Enter Fire Forge" State="false"/>
 			<Setting Id="UschAmbush1" Label="Uschtenheim Ambush" State="false"/>
 			<Setting Id="Area_pillars12c_1" Label="Elder God IV" State="false"/>
 			<Setting Id="Area_strong3c_1" Label="Start Brothers Gauntlet" State="false"/>
@@ -95,7 +96,7 @@
 			<Setting Id="SR2Info_12" Label="Forge Dark Reaver" State="false"/>
 			<Setting Id="SR2Info_13" Label="Forge Light Reaver" State="false"/>
 			<Setting Id="SR2Info_14" Label="Forge Air Reaver" State="false"/>
-			<Setting Id="SR2nfo_15" Label="Forge Fire Reaver" State="false"/>
+			<Setting Id="SR2Info_15" Label="Forge Fire Reaver" State="false"/>
 		</Setting>
 		<Setting Id="End2" Label="Final Split (Raziel Last Hit) (Always Active)" State="true"/>
 	</Setting>
