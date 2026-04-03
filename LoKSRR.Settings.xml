@@ -85,7 +85,7 @@
 			<Setting Id="Area_janos7A_1" Label="Outside Janos' Refuge" State="false"/>
 			<Setting Id="Area_janos11A_0" Label="Enter First Puzzle Area" State="false"/>
 			<Setting Id="Area_janos12A_1" Label="Enter Second Puzzle Area" State="false"/>
-			<Setting Id="Area_fire1a_0" Label="Enter Fire Forge" State="false"/>
+			<Setting Id="Area_fire1A_0" Label="Enter Fire Forge" State="false"/>
 			<Setting Id="UschAmbush1" Label="Uschtenheim Ambush" State="false"/>
 			<Setting Id="Area_pillars12c_1" Label="Elder God IV" State="false"/>
 			<Setting Id="Area_strong3c_1" Label="Start Brothers Gauntlet" State="false"/>
